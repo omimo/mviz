@@ -1,0 +1,344 @@
+<html>
+    <head>
+        <title>
+            [mViz]
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="Human Movement Visualizations">
+        <meta name="author" content="Omid Alemi">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@alvand2">
+        <meta name="twitter:creator" content="@alvand2">
+        <meta name="twitter:title" content="[mViz]">
+        <meta name="twitter:description" content="Human Movement Visualizations">
+        <meta name="twitter:image" content="http://omid.al/mviz/assets/thumb.png">
+
+        <meta name="og:title" content="[mViz]">
+        <meta name="og:description" content="Human Movement Visualizations">
+        <meta name="og:urk" content="http://mviz.omid.al">
+        <meta name="og:image" content="http://omid.al/mviz/assets/thumb.png">
+
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">        
+        <!--<link href="assets/spinner.css" rel="stylesheet">-->
+        <!--<link href="assets/chasing-dots.css" rel="stylesheet">-->
+
+        <style>
+            * {
+                box-sizing: border-box
+            }
+
+            body {
+                margin: 0px;
+                padding-bottom: 50px;
+            }        
+
+          header {
+              position: relative;
+              width: 100%;
+              height: 110px;
+              padding-top: 20px;              
+              top: 0px;              
+              text-align: center;
+              font-family: 'Inconsolata', monospace;
+              background-color: #fefefe;
+              transition: all .4s ease-in;
+              opacity: 1;
+              color: rgba(6,6,6,.7); 
+              border-bottom: 0.3px solid rgba(0,0,0,.2);
+              font-size: 32px;
+          }
+
+          header div {
+              padding-top: 10px; 
+              font-size: 24px;
+              color: rgba(6,6,6,.5); 
+          }
+
+          a {
+              color: rgba(6,6,6,.7);
+          }
+
+          a:visited {
+              color: rgba(6,6,6,.7);
+          }
+
+          .about {
+              background-color: #fefefe;
+              font-family: 'Inconsolata', monospace;
+              color: rgba(6,6,6,.7);              
+              border-top: 0.2px solid rgba(0,0,0,.1);
+              padding-top: 0px;
+              padding-bottom: 50px;
+              font-size: 18px;
+              line-height: 24px;     
+              padding-left: 20px;
+              padding-right: 20px;         
+          }
+
+          .about h2 {
+              font-size: 28px;
+              font-family: 'Inconsolata', monospace;
+              text-align: center;              
+          }
+
+          .about p {
+              max-width: 500px;
+              margin: 10px auto;              
+          }
+
+          #butt {
+              position: fixed;
+              width: 100%;
+              height: 40px;
+              padding: 10px;              
+              bottom: 0px;              
+              text-align: center;
+              font-family: 'Inconsolata', monospace;
+              background-color: #fcfcfc;
+              transition: all .4s ease-in;
+              opacity: 1;
+              color: rgba(6,6,6,.7);
+              border-top: 0.3px solid rgba(0,0,0,.2); 
+          }
+
+          #butt:hover {
+              opacity: 1 !important;
+              bottom: 0px !important;
+              /*box-shadow: 0px -10px 31px -17px rgba(82,82,82,1);*/
+          }
+
+          #butt .actions {
+              float: left;
+          }
+
+          #butt .copy {              
+              2float: right;
+          }
+
+          .copy a { 
+              /*text-decoration: none;*/
+              color: inherit;              
+          }
+
+          #butt span {
+              cursor: pointer;
+          }
+
+          #spinner {
+            opacity: .6;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+          }
+
+          #title {
+            cursor: initial;    
+          }
+          
+
+          .btn {
+              background-color: #ececec;
+              padding: 4px;
+              border-radius: 4px;
+              transition: all .3s ease-out;
+          }
+
+          .btn:hover {
+              /*background-color: red;*/
+              box-shadow: 0px 2px 2px 2px rgba(102,102,102,.3);
+          }
+
+          .btn:active {
+              /*background-color: red;*/
+              box-shadow: 0px -2px -2px 2px rgba(102,102,102,.3);
+          }
+
+          #list {
+              display: flex;
+              width: 90%;
+              max-width: 1100px;
+              flex-direction: row-reverse;
+              flex-wrap: wrap-reverse;
+              margin: 50 auto;              
+          }
+
+          .work {
+              display: flex;
+              width: 320px;
+              position: relative;
+              height: 200px;              
+              font-family: 'Inconsolata', monospace;
+              color: rgba(0,0,0,.9);
+              border: .1px solid rgba(190,190,190,.2);
+              cursor: pointer;
+              overflow: hidden;
+              border-radius: 10px;
+              min-height: 150px;
+              margin: 25px auto;              
+              margin-right: 25px;
+          }
+
+
+          @media screen and (max-width: 700px) {
+              .work {
+                  width: 90%;
+              }
+
+              header div {
+              padding-top: 7px; 
+              font-size: 18px;              
+              }
+
+          }
+
+          .work .previewimg {
+              width: 100%;              
+              transition: all .4s;
+          }
+
+          .work .previewimg:hover {
+              transform: scale(1.05);
+          }
+
+          .work span {
+              position: absolute;
+              bottom: 20px;
+              left: 0px;
+              background-color: rgba(190,190,190,0.1);
+              padding-left: 5px;
+              padding-right: 5px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              width: 100%;
+          }  
+
+.wrapper {
+    width: 90%;
+    max-width: 1100px; 
+    margin: 50 auto;   
+}
+
+.masonry {
+    margin: 1.5em 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+}
+
+.item {
+    display: inline-block;    
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@media only screen and (min-width: 400px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+
+        </style>
+    </head>
+    <body>
+        <header>
+            [<i>mViz</i>]
+            <div> Human Movement Visualizations</div>
+        </header>
+        <main>
+            <section>
+             <div class="wrapper2">   
+            <div id="list" class="masonry2">                
+                {{#each works}}
+                <a href="p/{{gist}}" class="work item2" style="height: {{height}}px">
+                    <div>
+                        <img class="previewimg" src="p/{{gist}}/raw/preview.png" height="{{height}}">
+                        <span>{{title}}</span>
+                    </div>
+                </a>
+                {{/each}}
+
+            </div>
+             </div>
+            </section>
+            <section class="about">
+                <h2>About</h2>                
+                    <p>The works presented here are 
+                        the result of having fun                           
+                        with motion capture data,
+                        exploring data visualization,  
+                        and collaborating with fellow researchers
+                        during my PhD research. 
+                        Most of the visulizations do not have any scientific purpose and are made
+                        just out of curiosity :-)   
+                    </p>
+                    <p>
+                    The visualizations are created using the <a href="http://d3js.org" target="_blank">D3.js</a>
+                    library, which is a very
+                    powerful tool for creating web-based visualizations out of data. The source-codes
+                    for the visualizations are avaibale on github. You are welcome to 
+                    play with them and create your own visulizations.                      
+                    </p>                
+                    <p>
+                    If you are interested in a more through tutorial on how to visualize motion capture
+                    date using D3.js, you can take a look at 
+                    <a href="http://omid.al/posts/2016-08-23-MocapVis-D3.html" target="_blank">
+                    this article</a>.
+                    </p>
+            </section>
+        </main>
+            <!--Spinner stuff-->
+            <!--<div id="spinner" class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>-->
+        <footer id="butt">        
+            <span class="copy">(c) 2016 - <a href="http://omid.al">Omid Alemi</a></span>
+        </footer>               
+    </body>
+</html>

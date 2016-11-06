@@ -1,0 +1,6 @@
+order: 4
+gist: 6b38c4f7bcf5f300f168207b38e35cab
+title: 'Walk - Squares'
+height: 207
+description: | 
+   Visualization of a walk, using D3.js step-after line function.

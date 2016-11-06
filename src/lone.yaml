@@ -1,0 +1,7 @@
+order: 1
+layout: nama.html
+gist: 286970281e38da51ca4d3ddf7bc05145
+title: 'Lone'
+height: 167
+description: | 
+    A simple example of drawing a single frame of motion capture data in d3.js    

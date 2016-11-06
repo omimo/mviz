@@ -1,0 +1,15 @@
+{
+  "name": "mviz",
+  "version": "1.0.0",
+  "description": "Human Movement Visualizations (mocap) with D3.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omid Alemi",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "js-yaml": "^3.6.1"
+  }
+}
