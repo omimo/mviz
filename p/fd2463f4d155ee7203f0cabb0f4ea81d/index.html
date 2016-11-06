@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <title>
+            mViz
+        </title>        
+        <meta name="description" content="Human Movement Visualization Gallery">
+        <meta name="author" content="Omid Alemi">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@alvand2">
+        <meta name="twitter:creator" content="@alvand2">
+        <meta name="twitter:title" content="[Basic Effort Actions - Entangled]">
+        <meta name="twitter:description" content="Visualization of a mover performing 8 LMA Basic Effort Actions. 
+">
+        <meta name="twitter:image" content="">
+
+        <meta name="og:title" content="[Basic Effort Actions - Entangled]">
+        <meta name="og:description" content="Visualization of a mover performing 8 LMA Basic Effort Actions. 
+">
+        <meta name="og:url" content="http://mviz.omid.al/p/fd2463f4d155ee7203f0cabb0f4ea81d">
+        <meta name="og:image" content="http://mviz.omid.al/p/fd2463f4d155ee7203f0cabb0f4ea81d/raw/preview.png">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">        
+        <link href="../../assets/spinner.css" rel="stylesheet">
+        <link href="../../assets/chasing-dots.css" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box
+            }
+
+            body {
+                margin: 0px;
+            }
+
+          svg {
+            position: relative;
+            left: calc(50% - 250px);
+          }
+
+          #butt {
+              position: fixed;
+              width: 100%;
+              height: 200px;
+              padding: 10px;              
+              bottom: 0px;
+              -webkit-box-shadow: 0px -2px 2px -1px rgba(0,0,0,0.75);
+              -moz-box-shadow: 0px -2px 2px -1px rgba(0,0,0,0.75);
+              box-shadow: 0px -10px 21px -17px rgba(82,82,82,1);
+              text-align: center;
+              font-family: 'Inconsolata', monospace;
+              background-color: #fcfcfc;
+              transition: all 1s ease-out;
+              opacity: 1;
+              color: rgba(6,6,6,.7); 
+          }
+
+          #butt:hover {
+              opacity: 1 !important;
+              bottom: 0px !important;
+              /*box-shadow: 0px -10px 31px -17px rgba(82,82,82,1);*/
+          }
+
+          .actions {              
+              position: absolute;
+              width: 100%;
+              text-align: center;
+              bottom: 12px;
+          }
+
+          .actions a {
+              color: inherit;
+          }
+
+          .actions a::visited {
+              color: inherit;
+          }
+
+          #copy {              
+              float: right;
+              width: 110px;
+              text-align: right;
+              position: fixed;
+              right: 10px;
+              bottom: 12px;
+              z-index: 99;
+          }
+
+          #copy a { 
+              /*text-decoration: none;*/
+              color: inherit;              
+          }
+
+          #butt span {
+              cursor: pointer;
+          }
+
+          #spinner {
+            opacity: .6;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+          }
+
+          #title {
+            cursor: initial;    
+            font-size: 18px;
+          }
+
+          .btn {
+              background-color: #ececec;
+              padding: 4px;
+              border-radius: 4px;
+              transition: all .3s ease-out;
+          }
+
+          .2btn:hover {
+              /*background-color: red;*/
+              box-shadow: 0px 2px 2px 2px rgba(102,102,102,.3);
+          }
+
+          .2btn:active {
+              /*background-color: red;*/
+              box-shadow: 0px -2px -2px 2px rgba(102,102,102,.3);
+          }
+
+          #vframe {
+              display: block;
+              width: 100%;
+              height: calc( 100% - 30px );
+              margin: 0;
+          }
+          #desc {
+              display: block;
+              width: 400px;
+              margin: 20px auto;
+          }
+
+          #mviz {
+              float:left;
+              text-decoration: underline;
+              font-style: italic;
+              color: rgba(6,6,6,.7) !important; 
+              width: 110px;
+              text-align: left;
+              position: fixed;
+              left: 10px;
+              bottom: 12px;
+              z-index: 99;
+          }
+
+          #mviz a:visited {
+              color: rgba(6,6,6,.7) !important;  
+          }
+        </style>
+    </head>
+    <body>
+        <div id="head">
+            
+        </div>
+        <iframe id="vframe" frameborder=0 src="raw/index.html"></iframe>
+        <!--Spinner stuff-->            
+        <div id="spinner" class="sk-chasing-dots">
+            <div class="sk-child sk-dot1"></div>
+            <div class="sk-child sk-dot2"></div>
+        </div>
+        <div id="butt">
+            <span id="mviz"><a href="/">[mviz]</a></span>        
+            <span id="title">Basic Effort Actions - Entangled</span>
+            <span id="copy">by <a href="http://omid.al">Omid Alemi</a></span>
+                        
+            <div id="desc">
+                Visualization of a mover performing 8 LMA Basic Effort Actions. 
+
+            </div>
+            <div class="actions">
+                <!--<span class="btn" onclick="savesvg()">svg</span>
+                <span class="btn" onclick="">png</span>-->
+                <img src="../../assets/GitHub-Mark-32px.png" width="16">
+                <a href="https://gist.github.com/fd2463f4d155ee7203f0cabb0f4ea81d" target="_blank">                    
+                    <span>fork me on github</span>
+                </a>
+            </div>
+        </div>
+
+        <script defer>
+            var descIsShown = false;
+        //   $('#title').on('click', function(e) {
+        //       if (descIsShown) {
+        //         document.getElementById("butt").style.bottom="-160px";
+        //         document.getElementById("butt").style.opacity="0.6";
+        //       } else {
+        //         document.getElementById("butt").style.bottom="0px";
+        //         document.getElementById("butt").style.opacity="1";
+        //       }
+        //     descIsShown = !descIsShown;
+        //   });
+                      
+
+          function loaded() {
+            document.getElementById("spinner").style.display="none";
+            document.getElementById("butt").style.bottom="-160px";
+            document.getElementById("butt").style.opacity="0.6";
+          }
+
+          function lookjs() {                                        
+                window.open("https://gist.github.com/fd2463f4d155ee7203f0cabb0f4ea81d",'_blank')
+          }
+
+          
+          function savesvg() {
+              //get svg element.
+            var svg = document.getElementById("svg");
+
+            //get svg source.
+            var serializer = new XMLSerializer();
+            var source = serializer.serializeToString(svg);
+
+            //add name spaces.
+            if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+                source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+            }
+            if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+                source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+            }
+
+            //add xml declaration
+            source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+            //convert svg source to URI data scheme.
+            var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+
+            //set url value to a element's href attribute. 
+            
+            var dlAnchorElem = document.getElementById('downloadAnchorElem');
+            dlAnchorElem.setAttribute("href",     url     );
+            dlAnchorElem.setAttribute("download", "viz.svg");
+            dlAnchorElem.click();
+            
+            //you can download svg file by right click menu.
+          }
+
+        </script>
+        <a id="downloadAnchorElem" style="display:none"></a>
+    </body>
+</html>
