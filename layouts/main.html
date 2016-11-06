@@ -214,69 +214,18 @@
               padding-bottom: 10px;
               width: 100%;
           }  
-
-.wrapper {
-    width: 90%;
-    max-width: 1100px; 
-    margin: 50 auto;   
-}
-
-.masonry {
-    margin: 1.5em 0;
-    padding: 0;
-    -moz-column-gap: 1.5em;
-    -webkit-column-gap: 1.5em;
-    column-gap: 1.5em;
-    font-size: .85em;
-}
-
-.item {
-    display: inline-block;    
-    width: 100%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-@media only screen and (min-width: 400px) {
-    .masonry {
-        -moz-column-count: 1;
-        -webkit-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-    .masonry {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-    }
-}
-
-@media only screen and (min-width: 900px) {
-    .masonry {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-    }
-}
-
-@media only screen and (min-width: 1100px) {
-    .masonry {
-        -moz-column-count: 3;
-        -webkit-column-count: 3;
-        column-count: 3;
-    }
-}
-
-@media only screen and (min-width: 1280px) {
-    .wrapper {
-        width: 1260px;
-    }
-}
-
         </style>
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79610801-1', 'auto');
+        ga('send', 'pageview');
+
+        </script>
     </head>
     <body>
         <header>
@@ -286,9 +235,9 @@
         <main>
             <section>
              <div class="wrapper2">   
-            <div id="list" class="masonry2">                
+            <div id="list">                
                 {{#each works}}
-                <a href="p/{{gist}}" class="work item2" style="height: {{height}}px">
+                <a href="p/{{gist}}" class="work" style="height: {{height}}px">
                     <div>
                         <img class="previewimg" src="p/{{gist}}/raw/preview.png" height="{{height}}">
                         <span>{{title}}</span>
@@ -306,7 +255,7 @@
                         with motion capture data,
                         exploring data visualization,  
                         and collaborating with fellow researchers
-                        during my PhD research. 
+                        during my PhD. 
                         Most of the visulizations do not have any scientific purpose and are made
                         just out of curiosity :-)   
                     </p>
@@ -319,9 +268,9 @@
                     </p>                
                     <p>
                     If you are interested in a more through tutorial on how to visualize motion capture
-                    date using D3.js, you can take a look at 
+                    data using D3.js, you can take a look at 
                     <a href="http://omid.al/posts/2016-08-23-MocapVis-D3.html" target="_blank">
-                    this article</a>.
+                    this blog post</a>.
                     </p>
             </section>
         </main>
