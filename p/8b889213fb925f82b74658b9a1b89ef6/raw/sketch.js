@@ -143,9 +143,9 @@ function draw() {
 }
 
 // Read the files
-$.getJSON("http://omid.al/moveviz/data/Skeleton_BEA.json", function (json) {
+$.getJSON("https://omid.al/moveviz/data/Skeleton_BEA.json", function (json) {
     connectivityMatrix = json;
-    $.getJSON("http://omid.al/moveviz/data/BEA.json", function (json) {
+    $.getJSON("https://omid.al/moveviz/data/BEA.json", function (json) {
         positions = json;
         draw();
     });

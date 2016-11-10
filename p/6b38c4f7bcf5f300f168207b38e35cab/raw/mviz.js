@@ -7,8 +7,8 @@ var w = 900;
 var gap = 0;
 var skip = 1;
 var traillength = 2;
-var dataFile = {frames: "http://omid.al/moveviz/data/Walk_long.json",
-                skeleton: "http://omid.al/moveviz/data/Skeleton_Walk.json"};
+var dataFile = {frames: "https://omid.al/moveviz/data/Walk_long.json",
+                skeleton: "https://omid.al/moveviz/data/Skeleton_Walk.json"};
 
 //******************************************************************//
 var Mova = {};

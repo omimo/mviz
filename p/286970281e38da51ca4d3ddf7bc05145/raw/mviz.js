@@ -83,9 +83,9 @@ function draw() {
 }
 
 // Read the files
-$.getJSON("http://omid.al/moveviz/data/Skeleton_Slash.json", function (json) {
+$.getJSON("https://omid.al/moveviz/data/Skeleton_Slash.json", function (json) {
     skeleton = json;
-    $.getJSON("http://omid.al/moveviz/data/Slash.json", function (json) {
+    $.getJSON("https://omid.al/moveviz/data/Slash.json", function (json) {
         positions = json;
         draw();
     });
