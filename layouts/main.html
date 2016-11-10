@@ -1,5 +1,9 @@
 <html>
     <head>
+        <script type="text/javascript">            
+            if (window.location.protocol != "https:")
+                window.location.protocol = "https";
+        </script>
         <title>
             [mViz]
         </title>
@@ -237,9 +241,9 @@
              <div class="wrapper2">   
             <div id="list">                
                 {{#each works}}
-                <a href="p/{{gist}}" class="work" style="height: {{height}}px">
+                <a href="https://mviz.omid.al/p/{{gist}}" class="work" style="height: {{height}}px">
                     <div>
-                        <img class="previewimg" src="p/{{gist}}/raw/preview.png" height="{{height}}">
+                        <img class="previewimg" src="https://mviz.omid.al/p/{{gist}}/raw/preview.png" height="{{height}}">
                         <span>{{title}}</span>
                     </div>
                 </a>
