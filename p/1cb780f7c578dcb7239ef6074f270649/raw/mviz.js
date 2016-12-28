@@ -92,7 +92,7 @@ var anim = function () {
 };
 
 var loaded = function() {
-    if (window.parent && window.parent.loaded)
+    if (window.parent)
         window.parent.loaded();
     
     // Let's first let go of the stuff we don't want to keep in mem
