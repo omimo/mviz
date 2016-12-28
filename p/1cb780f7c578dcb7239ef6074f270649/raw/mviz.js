@@ -13,9 +13,9 @@ var traillength = 10;
 var CMUDeletedBones = [0, 5,6,11,15,16,17,18,20,24,25,27,28,29,33,36];
 
 // Create the SVG container
-var parent = d3.select("body").select("#cont");
-
-var svg = parent.append("svg")
+var svg = d3.select("body")
+    .select("#cont")
+    .append("svg")
     .attr("width", 800)
     .attr("height", 800);
 
@@ -94,8 +94,7 @@ var anim = function () {
 var dataLoaded = function() {
     if (window.parent && window.parent.loaded)
         window.parent.loaded();
-    else if (window.loaded)
-        window.loaded();
+
     
     // Let's first let go of the stuff we don't want to keep in mem
     fig.tracks[0].data['joint-positions'] = [];
