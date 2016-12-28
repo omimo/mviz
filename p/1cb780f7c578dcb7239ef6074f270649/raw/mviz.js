@@ -91,7 +91,7 @@ var anim = function () {
     // window.requestAnimationFrame(anim);
 };
 
-var loaded = function() {
+var dataLoaded = function() {
     if (window.parent && window.parent.loaded)
         window.parent.loaded();
     else if (window.loaded)
@@ -122,6 +122,6 @@ var loaded = function() {
 function run() {
     fig = MovaViz('Sketchy')
     .debug(true) // print out the debug messages
-    .data('https://www.sfu.ca/~oalemi/data/05/05_07.bvh','bvh', loaded)
+    .data('https://www.sfu.ca/~oalemi/data/05/05_07.bvh','bvh', dataLoaded)
     .container(svg);    
 }
