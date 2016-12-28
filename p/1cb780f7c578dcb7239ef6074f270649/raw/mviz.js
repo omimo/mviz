@@ -92,8 +92,10 @@ var anim = function () {
 };
 
 var loaded = function() {
-    if (window.parent)
+    if (window.parent && window.parent.loaded)
         window.parent.loaded();
+    else if (window.loaded)
+        window.loaded();
     
     // Let's first let go of the stuff we don't want to keep in mem
     fig.tracks[0].data['joint-positions'] = [];
