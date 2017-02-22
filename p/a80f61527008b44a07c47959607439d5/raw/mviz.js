@@ -68,7 +68,7 @@ var cruveBoneFcn = function(j) {
 };
 
 
-var loaded = function() {
+var dataLoaded = function() {
     if (window.parent && window.parent.loaded)
         window.parent.loaded();    
 };
@@ -76,7 +76,7 @@ var loaded = function() {
 function run() {
     fig = MovaViz('BEA')
     .debug(true)
-    .data('https://www.sfu.ca/~oalemi/data/KAREN_BEAS_001_original.bvh','bvh', loaded)
+    .data('https://www.sfu.ca/~oalemi/data/KAREN_BEAS_001_original.bvh','bvh', dataLoaded)
     .container(svg);
 
     fig.addDrawMethod(cruveBoneFcn, 'bone-positions', [startFrame,endFrame], 1);
