@@ -73,7 +73,13 @@ var dataLoaded = function() {
     if (window.parent && window.parent.loaded) {
         console.log('Minimizing the parent.');
         window.parent.loaded();    
+    } else if (window.loaded) {
+        console.log('Minimizing the parent.');
+        window.loaded(); 
     }
+
+    if (window.parent && window.parent.loaded)
+        window.parent.loaded();
         
 };
 
