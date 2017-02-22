@@ -69,8 +69,12 @@ var cruveBoneFcn = function(j) {
 
 
 var dataLoaded = function() {
-    if (window.parent && window.parent.loaded)
+    console.log('Data loaded.');
+    if (window.parent && window.parent.loaded) {
+        console.log('Minimizing the parent.');
         window.parent.loaded();    
+    }
+        
 };
 
 function run() {
