@@ -1,7 +1,7 @@
 <html>
     <head>
         <script type="text/javascript">            
-            if (window.location.protocol != "https:")
+            if (window.location.hostname == "mviz.omid.al" && window.location.protocol != "https:")
                 window.location.protocol = "https";
         </script>
         <title>
@@ -131,7 +131,7 @@
           #vframe {
               display: block;
               width: 100%;
-              height: calc( 100% - 30px );
+              height: calc( 100vh - 30px );
               margin: 0;
           }
           #desc {
