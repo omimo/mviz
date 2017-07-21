@@ -121,6 +121,10 @@ function draw() {
       return frames[k * skip][d[1]].y;
     });
     
-	if (window.top && window.top.loaded) 
-        window.top.loaded();  
+    try {    
+	    if (window.top && window.top.loaded) 
+            window.top.loaded();  
+    } catch(err) {
+        console.log(err);
+    }
 }

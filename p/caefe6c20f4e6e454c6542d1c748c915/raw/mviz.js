@@ -13,10 +13,10 @@ function run() {
     // Read the files
     console.log('Loading the data...');
     
-    d3.json("http://omid.al/moveviz/data/ConnectivityMatrix_Antonio.json", function(error, json) {
+    d3.json("https://omid.al/moveviz/data/ConnectivityMatrix_Antonio.json", function(error, json) {
         if (error) return console.warn(error);
         skeleton = json;
-        d3.json("http://omid.al/moveviz/data/Improv_Antonio.json", function(error, json) {
+        d3.json("https://omid.al/moveviz/data/Improv_Antonio.json", function(error, json) {
             positions = json;
             positions.splice(0, 160);
             positions.splice(positions.length-190, 190);
@@ -106,8 +106,12 @@ function draw(frames) {
       return coef;
     });
 
-	if (window.top && window.top.loaded) 
-        window.top.loaded();  
+    try {    
+	    if (window.top && window.top.loaded) 
+            window.top.loaded();  
+    } catch(err) {
+        console.log(err);
+    }
 
     return svg;
 }
