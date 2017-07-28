@@ -1,0 +1,8 @@
+order: 14
+gist: a80f61527008b44a07c47959607439d5
+title: 'BEA - One-Line Traces'
+height: 285
+description: | 
+    Visualization of a mover performing 8 LMA Basic Effort Actions. 
+
+    Made with Mova-Viz and D3.js line functions.
